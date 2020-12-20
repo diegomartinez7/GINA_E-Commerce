@@ -33,7 +33,7 @@
                 <a class="nav-link" href="acercaDe.php">Acerca de</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="acercaDe.php">FAQ</a>
+                <a class="nav-link" href="pFrecuentes.php">FAQ</a>
             </li>
         </ul>
 
@@ -72,10 +72,14 @@
                                         echo "<input name='clave' id='passwordInput' placeholder='Contraseña' class='form-control form-control-sm' type='password' required=''>";
                                     echo "</div>";
                                     echo "<div class='form-group'>";
+                                        echo "<img src='captchaFondo.php' alt='' class='mb-2'>";
+                                        echo "<input name='codigoCaptcha' id='captcha' class='form-control form-control-sm' type='text' required=''>";
+                                    echo "</div>";
+                                    echo "<div class='form-group'>";
                                         echo "<button type='submit' class='btn btn-success btn-block'>Login</button>";
                                     echo "</div>";
                                     echo "<div class='form-group text-center'>";
-                                        echo "<small><a href='#' data-toggle='modal' data-target='#modalPassword'>¿No te has registrado?</a></small>";
+                                        echo "<small><a href='#' data-toggle='modal' data-target='#modalRegistro'>¿No te has registrado?</a></small>";
                                     echo "</div>";
                                 echo "</form>";
                             echo "</li>";
@@ -89,6 +93,75 @@
         <!---------------------- Fin de Validación para iniciar/cerrar sesión ------------------------------>
         </div>
     </nav>
+    <!---------------------- Modal de Regisro ----------------------------->
+    <div class="modal fade" id="modalRegistro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Registro de cuenta</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="" method="post">
+                        <div class="form-group">
+                            <label for="nombre">Nombre Completo:</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="usuario">Usuario:</label>
+                            <input type="text" class="form-control" id="usuario" name="usuario" required>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-6">
+                                <label for="pais">País:</label>
+                                <select name="pais" id="pais" class="form-control">
+                                    <option value="" selected>Seleccione</option>
+                                    <option value="mx">México</option>
+                                    <option value="usa">Estados Unidos</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="ciudad">Ciudad:</label>
+                                <input type="text" id="ciudad" class="form-control" name="ciudad" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-6">
+                                <label for="direccion">Dirección:</label>
+                                <input type="text" id="direccion" class="form-control" name="dir" required>
+                            </div>
+                            <div class="form-group col-6">
+                                <label for="cp">Código Postal:</label>
+                                <input type="number" id="cp" class="form-control" name="cp" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="correo">Correo electrónico:</label>
+                            <input type="email" id="correo" class="form-control" name="email" required>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-6">
+                                <label for="contra">Contraseña:</label>
+                                <input type="password" class="form-control" id="contra" name="contrasena">
+                            </div>
+                            <div class="form-group col-6">
+                                <label for="recontra">Confirmar contraseña:</label>
+                                <input type="password" class="form-control" id="recontra">
+                                <small id="msg" class="text-danger"></small>
+                            </div>
+                        </div>
+                        <p class="text-danger m-4 small" id="failed"></p>
+                        <button class="btn btn-lg btn-warning mb-3" id="validar" type="button">Validar</button>
+                        <input type="submit" class="btn btn-info btn-block d-none" value="Enviar" id="enviar">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <h1 class="text-center m-3">Gusto Innovador para Nuestros Atletas</h1>
     <!------------------------------- Mensaje de bienvenida ------------------------->
     <?php
