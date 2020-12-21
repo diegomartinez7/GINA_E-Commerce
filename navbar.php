@@ -120,6 +120,7 @@
                                     <option value="" selected>Seleccione</option>
                                     <option value="mx">México</option>
                                     <option value="usa">Estados Unidos</option>
+                                    <option value="australia">Australia</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -140,6 +141,11 @@
                         <div class="form-group">
                             <label for="correo">Correo electrónico:</label>
                             <input type="email" id="correo" class="form-control" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="recuperar">Clave de recuperación:</label>
+                            <input type="email" id="recuperar" class="form-control" name="recuperar" required>
+                            <small class="text-success">En caso de perder tu contraseña necesitas este campo. Ejemplo: Nombre de tu perro</small>
                         </div>
                         <div class="row">
                             <div class="form-group col-6">
