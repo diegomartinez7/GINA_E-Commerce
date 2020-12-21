@@ -55,7 +55,7 @@
 <div class="container margen-pagina-completa">
     <div class="jumbotron">
         <h3 class="text-center">¿Quieres obtener un descuento?</h3>
-        <button class="btn btn-block btn-danger m-4" data-toggle="modal" data-target="#modalRegistro">Suscríbete ahora</button>
+        <button class="btn btn-block btn-danger mt-4 mb-4" data-toggle="modal" data-target="#modalRegistro">Suscríbete ahora</button>
         <p class="text-center">No te lo puedes perder</p>
     </div>
 </div>
@@ -64,41 +64,51 @@
     include('footer.php');
 ?>
 
-
-<!----------- Script para el buscador con AJAX  -->
 <script>
-    
-function mostrarResultados(str) {
-    
-  var xhttp;
-  if (str.length == 0) { 
-    document.getElementById("resultados").innerHTML = "";
-    return;
-  }
-  xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
+    //------------------------------------- Función para el buscador con AJAX ------------------------------------->
+    function mostrarResultados(str) {
+        var xhttp;
+        if (str.length == 0) { 
+            document.getElementById("resultados").innerHTML = "";
+            return;
+        }
         
-        let a  =  document.getElementById("resultados");
-        
-        a.innerHTML = this.responseText;
-        
-        let aux = this.responseText.trim().toLocaleLowerCase();
+        xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                
+                let a  =  document.getElementById("resultados");
+                
+                a.innerHTML = this.responseText;
+                
+                let aux = this.responseText.trim().toLocaleLowerCase();
 
-      if( aux == 'jersey' || aux == 'ropa'){
-        // Ingresamos la ruta a la categoría de ropa
-        a.href = 'ropa.php'; //todavía no existe
+            if( aux == 'jersey' || aux == 'ropa'){
+                // Ingresamos la ruta a la categoría de ropa
+                a.href = 'ropa.php'; //todavía no existe
 
-      }else if( aux == 'equipo' || aux == 'accesorios' || aux == 'tenis'){
-        a.href = 'accesorios.php';
-      }else{
-          a.href='#'
-      }
+            }else if( aux == 'equipo' || aux == 'accesorios' || aux == 'tenis'){
+                a.href = 'accesorios.php';
+            }else{
+                a.href='#'
+            }
+            }
+        };
+        xhttp.open("GET", "resultadosBusqueda.php?q="+str, true);
+        xhttp.send();   
     }
-  };
-  xhttp.open("GET", "resultadosBusqueda.php?q="+str, true);
-  xhttp.send();   
-}
+
+    //------------------------------------- Función para mostrar los intentos ------------------------------------->
+    function intentos(){
+        var alerta = <?php echo $_SESSION['intentos'] ?>;
+        if(alerta != 0 && alerta < 3)
+            alert(`Intento ${alerta}/3 para bloquear cuenta`);
+        else if(alerta==3)
+            alert(`Intento ${alerta}/3 cuenta bloqueada`);
+    }
+
+    //Llamada explícita para que la función se ejecute sin necesidad de un botón
+    intentos();
 </script>
   
 </body>
