@@ -1,5 +1,4 @@
 <?php
-
     session_start();
 
     function randomText($length) {
@@ -11,7 +10,6 @@
         return $key;
     }
 
-        
     $image = imagecreatetruecolor(200, 50);
  
     imageantialias($image, true);
@@ -52,8 +50,8 @@
     imagettftext($image, 20, rand(-15, 15), $initial + $i*$letter_space, rand(20, 40), $textcolors[rand(0, 1)], $fonts, $captcha[$i]);
     }
  
-header('Content-type: image/png');
-imagepng($image);
-imagedestroy($image);
+    header('Content-type: image/png');
+    imagepng($image);
+    imagedestroy($image);
 
 ?>
