@@ -56,6 +56,7 @@
     <div class="jumbotron">
         <h3 class="text-center">¿Quieres obtener un descuento?</h3>
         <button class="btn btn-block btn-danger m-4" data-toggle="modal" data-target="#modalRegistro">Suscríbete ahora</button>
+        <p class="text-center">No te lo puedes perder</p>
     </div>
 </div>
 

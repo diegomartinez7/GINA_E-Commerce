@@ -21,6 +21,7 @@ function validarContra(){
         msg.innerHTML = '';
         return true;
     }else{
+        msg.innerHTML = '';
         msg.innerHTML = 'No hay coincidencia entre contraseñas';
         return false;
     }
@@ -34,11 +35,13 @@ function validarCampos(){
     const ciudad = document.getElementById('ciudad').value;
     const direccion = document.getElementById('direccion').value;
     const cp = document.getElementById('cp').value;
+    const recuperar = document.getElementById('recuperar').value;
+    
 
     const regNombre = /^[a-zA-ZÁ-ÿ\s]{3,50}$/;
     const regUser = /^[a-zA-Z0-9]{4,10}$/;
 
-    if( nombre!='' && pais!='' && email!='' && usuario!='' && ciudad!='' && direccion!='' && cp!=''){
+    if( nombre!='' && pais!='' && email!='' && usuario!='' && ciudad!='' && direccion!='' && cp!='' && recuperar!=''){
         if(regNombre.test(nombre) && regUser.test(usuario)){
             return true;
         }
