@@ -1,5 +1,5 @@
 <?php
-    
+    session_start();
 ?>
 
 <!------------------------------------------------------------ Menú de navegación -------------------------------------------------------->
@@ -42,9 +42,9 @@
             <!-- Este li muestra el nombre del usuario -->
             <li class="nav-item order-2 order-md-1">
                 <?php 
-                    if(!empty($_SESSION["usuario"])){
-                        $nombre = $_SESSION["usuario"];
-                        echo "<span class='text-light font-weight-bold btn btn-dark mr-2'> <i class='fas fa-user-circle text-success'></i> " . $nombre . "</span>";
+                    if(!empty($_SESSION["cuenta"])){
+                        $nombre = $_SESSION["cuenta"];
+                        echo "<span class='text-light font-weight-bold btn btn-secondary mr-2'> <i class='fas fa-user-circle text-success'></i> " . $nombre . "</span>";
                     }
                 ?>
             </li>
@@ -52,7 +52,7 @@
                 <button type="button" id="dropdownMenu1" data-toggle="dropdown" class="btn btn-outline-light dropdown-toggle">
                 <!---------------------- Validación para iniciar/cerrar sesión ------------------------------>
                 <?php
-                    if(empty($_SESSION["usuario"])){
+                    if(empty($_SESSION["cuenta"])){
                         echo "Login";   
                     }
                     else{
@@ -61,12 +61,12 @@
                 ?>
                 <span class="caret"></span></button>
                 <?php
-                    if(empty($_SESSION["usuario"])){
+                    if(empty($_SESSION["cuenta"])){
                         echo "<ul class='dropdown-menu dropdown-menu-right mt-2'>";
                             echo "<li class='px-3 py-2'>";
                                 echo "<form class='form' role='form' action='login.php' method='post'>";
                                     echo "<div class='form-group'>";
-                                        echo "<input name='nombre' id='emailInput' placeholder='Usuario' class='form-control form-control-sm' type='text' required=''>";
+                                        echo "<input name='cuenta' id='emailInput' placeholder='Usuario' class='form-control form-control-sm' type='text' required=''>";
                                     echo "</div>";
                                     echo "<div class='form-group'>";
                                         echo "<input name='clave' id='passwordInput' placeholder='Contraseña' class='form-control form-control-sm' type='password' required=''>";
@@ -120,6 +120,7 @@
                                     <option value="" selected>Seleccione</option>
                                     <option value="mx">México</option>
                                     <option value="usa">Estados Unidos</option>
+                                    <option value="australia">Australia</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -140,6 +141,11 @@
                         <div class="form-group">
                             <label for="correo">Correo electrónico:</label>
                             <input type="email" id="correo" class="form-control" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="recuperar">Clave de recuperación:</label>
+                            <input type="email" id="recuperar" class="form-control" name="recuperar" required>
+                            <small class="text-success">En caso de perder tu contraseña necesitas este campo. Ejemplo: Nombre de tu perro</small>
                         </div>
                         <div class="row">
                             <div class="form-group col-6">
