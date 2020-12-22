@@ -1,11 +1,12 @@
 <?php
     include('conexion.php');
+    include('../cadenaAleatoria.php');
 
     if($_SERVER["REQUEST_METHOD"]=='POST'){
         //Obtenemos los valores del formulario de registro
         $nombre = $_POST["nombre"];
         $cuenta = $_POST["cuenta"];
-        $clave = $_POST["contrasena"];
+        $clave = md5($_POST["contrasena"]);
         $correo = $_POST["correo"];
         //El campo de habilitado iría aquí pero se establece siempre en 0 en un registro nuevo
         $pais = $_POST["pais"];
@@ -30,6 +31,35 @@
             $query = "INSERT INTO usuario (`Nombre`, `Cuenta`, `Clave`, `Correo`, `Habilitado`, `Pais`, `Direccion`, `Ciudad`, `CP`, `Respaldo`) 
                   VALUES ('$nombre','$cuenta','$clave','$correo',0,'$pais','$ciudad','$direccion','$cp','$respaldo')";
             $conexion->query($query);
+            
+            $desc = '';
+            // ------------------------ nos aseguramos de generar un código distinto
+            do{
+                $descuento = randomText(6);
+                $desc = $descuento;
+                $queryDesc = "SELECT Codigo FROM cupones WHERE Codigo = '$descuento'";
+                $result = $conexion->query($queryDesc);
+
+
+            }while($result->num_rows);
+            // .---------------------Vamos a buscar el ID del usuario nuevo para insertarlo en la tabla cupones
+            $userQuery = $conexion->query("SELECT ID FROM usuario WHERE Cuenta='$cuenta'");
+            
+            $idUsuario = [];
+            
+            $first_row = $userQuery->fetch_assoc();
+            
+            $idUsuario= $first_row['ID'];
+            
+            while($sub_row = $userQuery->fetch_assoc()) {
+                $idUsuario = implode('', array($idUsuario, $sub_row['ID']));
+            }
+            
+            // ----------------- aqui enviamos a la tabla cupones un registro nuevo -----------
+            $queryInserta = "INSERT INTO cupones (`Codigo`,`ID_Usuario`,`Disponible`) VALUES ('$desc','$idUsuario',0)";
+            $conexion->query($queryInserta);
+
+
         }
     }
 

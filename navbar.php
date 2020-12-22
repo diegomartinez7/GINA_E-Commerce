@@ -67,19 +67,35 @@
                 ?>
                 <span class="caret"></span></button>
                 <?php
+                    
+                    if(isset($_COOKIE["username"])) {
+                        $valueC = $_COOKIE["username"]; 
+                    }else{
+                        $valueC= '';
+                    } 
+
+                    if(isset($_COOKIE["password"])) {
+                        $valueP = $_COOKIE["password"]; 
+                    }else{
+                        $valueP = '';
+                    } 
+
                     if(empty($_SESSION["cuenta"])){
                         echo "<ul class='dropdown-menu dropdown-menu-right mt-2'>";
                             echo "<li class='px-3 py-2'>";
                                 echo "<form class='form' role='form' action='login.php' method='post'>";
                                     echo "<div class='form-group'>";
-                                        echo "<input name='cuenta' id='cuentaInput' placeholder='Usuario' class='form-control form-control-sm' type='text' required=''>";
+                                        echo "<input name='cuenta' id='cuentaInput' placeholder='Usuario' class='form-control form-control-sm' type='text' value='". $valueC ."' required>";
                                     echo "</div>";
                                     echo "<div class='form-group'>";
-                                        echo "<input name='clave' id='claveInput' placeholder='Contraseña' class='form-control form-control-sm' type='password' required=''>";
+                                        echo "<input name='clave' id='claveInput' placeholder='Contraseña' class='form-control form-control-sm' type='password' value='".$valueP."'>";
                                     echo "</div>";
                                     echo "<div class='form-group'>";
                                         echo "<img src='captchaFondo.php' alt='' class='mb-2'>";
                                         echo "<input name='codigoCaptcha' id='captcha' class='form-control form-control-sm' type='text' required=''>";
+                                    echo "</div>";
+                                    echo "<div class='form-group'>";
+                                        echo "<input type='checkbox' name='recordar'> Recordar usuario y contraseña</input>";
                                     echo "</div>";
                                     echo "<div class='form-group'>";
                                         echo "<button type='submit' class='btn btn-success btn-block'>Login</button>";
@@ -115,17 +131,17 @@
                 <div class="modal-body">
                     <form action="php_mysql/registro.php" method="post">
                         <div class="form-group">
-                            <label for="nombre">Nombre Completo:</label>
-                            <input type="text" class="form-control" id="nombre" name="nombre" required>
+                            <label for="Rnombre">Nombre Completo:</label>
+                            <input type="text" class="form-control" id="Rnombre" name="nombre" required>
                         </div>
                         <div class="form-group">
-                            <label for="cuenta">Cuenta de usuario:</label>
-                            <input type="text" class="form-control" id="cuenta" name="cuenta" required>
+                            <label for="Rcuenta">Cuenta de usuario:</label>
+                            <input type="text" class="form-control" id="Rcuenta" name="cuenta" required>
                         </div>
                         <div class="row">
                             <div class="form-group col-6">
-                                <label for="pais">País:</label>
-                                <select name="pais" id="pais" class="form-control">
+                                <label for="Rpais">País:</label>
+                                <select name="pais" id="Rpais" class="form-control">
                                     <option value="" selected>Seleccione</option>
                                     <option value="México">México</option>
                                     <option value="USA">Estados Unidos</option>
@@ -133,27 +149,27 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="ciudad">Ciudad:</label>
-                                <input type="text" id="ciudad" class="form-control" name="ciudad" required>
+                                <label for="Rciudad">Ciudad:</label>
+                                <input type="text" id="Rciudad" class="form-control" name="ciudad" required>
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-group col-6">
-                                <label for="direccion">Dirección:</label>
-                                <input type="text" id="direccion" class="form-control" name="direccion" required>
+                                <label for="Rdireccion">Dirección:</label>
+                                <input type="text" id="Rdireccion" class="form-control" name="direccion" required>
                             </div>
                             <div class="form-group col-6">
-                                <label for="cp">Código Postal:</label>
-                                <input type="number" id="cp" class="form-control" name="cp" required>
+                                <label for="Rcp">Código Postal:</label>
+                                <input type="number" id="Rcp" class="form-control" name="cp" required>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="correo">Correo electrónico:</label>
-                            <input type="email" id="correo" class="form-control" name="correo" required>
+                            <label for="Rcorreo">Correo electrónico:</label>
+                            <input type="email" id="Rcorreo" class="form-control" name="correo" required>
                         </div>
                         <div class="form-group">
-                            <label for="recuperar">Clave de recuperación:</label>
-                            <input type="text" id="recuperar" class="form-control" name="recuperar" required>
+                            <label for="Rrecuperar">Clave de recuperación:</label>
+                            <input type="text" id="Rrecuperar" class="form-control" name="recuperar" required>
                             <small class="text-success">En caso de perder tu contraseña necesitas este campo. Ejemplo: Nombre de tu perro</small>
                         </div>
                         <div class="row">
