@@ -97,7 +97,9 @@
         xhttp.open("GET", "resultadosBusqueda.php?q="+str, true);
         xhttp.send();   
     }
+</script>
 
+<script>
     //------------------------------------- Función para mostrar los intentos ------------------------------------->
     function intentos(){
         var alerta = <?php echo $_SESSION['intentos'] ?>;

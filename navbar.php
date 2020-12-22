@@ -21,16 +21,16 @@
                     Tienda
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="infoCertificados.php">Ropa</a>
+                    <a class="dropdown-item" href="ropa.php">Ropa</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="examen.php">Equipo y accesorios</a>
+                    <a class="dropdown-item" href="accesorios.php">Equipo y accesorios</a>
                 </div>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="contacto.php">Contacto</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="acercaDe.php">Acerca de</a>
+                <a class="nav-link" href="about.php">Acerca de</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="pFrecuentes.php">FAQ</a>
