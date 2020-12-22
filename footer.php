@@ -2,6 +2,7 @@
         <div class="container">
             <p><em>G.I.N.A</em> ©2020 Todos los derechos reservados</p>
         </div>
+    </div>
 </footer>
 
 <!-- Cierre del div que es abierto en navbar.php -->

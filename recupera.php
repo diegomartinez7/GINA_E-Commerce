@@ -1,7 +1,8 @@
 <?php
     // ----------------------- Script para validar que exista el usuario y si la clave es correcta -------------
-    include('../php_mysql/conexion.php');
-    include('../cadenaAleatoria.php');
+    session_start();
+    include('php_mysql/conexion.php');
+    include('cadenaAleatoria.php');
 
     if($_SERVER["REQUEST_METHOD"] == 'POST'){
         $usuario = $_POST["usuario"];
@@ -25,12 +26,13 @@
                     $update = "update usuario set clave='$encriptada', habilitado=0 where cuenta='$cuenta'";
 
                     $_SESSION["nombreCorreo"] = $cuenta;
+                    $_SESSION["claveCorreo"] = $contraNueva;
                   
                     
                     
-                    //$conexion ->query($update);
+                    $conexion ->query($update);
 
-                    //header("Location: mailContra.php");
+                    header("Location: correoContra.php");
 
                     
                 }

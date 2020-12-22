@@ -57,6 +57,12 @@
         <h3 class="text-center">¿Quieres obtener un descuento?</h3>
         <button class="btn btn-block btn-danger mt-4 mb-4" data-toggle="modal" data-target="#modalRegistro">Suscríbete ahora</button>
         <p class="text-center">No te lo puedes perder</p>
+        <p class="text-center">O s&iacute;guenos en nuestra pagina de Facebook para mas promociones y contenido:</p>
+        <div style="text-align: center">
+   <a href="https://www.facebook.com/Gusto-Innovador-para-Nuestros-Atletas-GINA-101657985186271" title="" style="font-size: 50px; display: inline-block; text-align: center;" target="_blank"><i class="fab fa-facebook"></i></a>
+   <br>
+   Tambien contamos con un cupon de descuento
+		</div>
     </div>
 </div>
 

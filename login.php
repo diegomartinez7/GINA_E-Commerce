@@ -16,7 +16,7 @@
         
         while($tupla = $resultado->fetch_assoc()){
             if($tupla["Cuenta"]==$cuenta){
-                if($tupla["Clave"]==$clave){
+                if($tupla["Clave"]==md5($clave)){
                     //Se separa el captcha porque no es motivo de penalización
                     if($captcha==$_SESSION['captcha_text']){
                         $_SESSION['id'] = $tupla['ID'];
