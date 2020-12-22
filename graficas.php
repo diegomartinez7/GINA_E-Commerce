@@ -1,3 +1,16 @@
+<?php
+    session_start();
+    
+    //Validamos que sólo el administrador pueda entrar a esta página
+    if(!empty($_SESSION["cuenta"])){
+        if($_SESSION["cuenta"] != 'Administrador'){
+            header("Location: index.php");
+        }
+    }
+    else {
+        header("Location: index.php");
+    }
+?>
 
 <!DOCTYPE html>
 <html lang="en">

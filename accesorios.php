@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +20,14 @@
     <div class="container margen-pagina-completa">
         <h2 class="text-center mb-3">¡Elige entre una enorme variedad de productos!</h2>
         <h4 class="text-center text-secondary">El equipo que va acorde a tus habilidades, los accesorios de mayor calidad.</h4>
+        <?php
+            if(!empty($_SESSION["cuenta"])){
+                if($_SESSION["cuenta"]=='Administrador')
+                    echo '<div class="text-center">
+                            <a class="btn btn-info col-6 mt-5" href="administrar.php"><span class="fas fa-tools"></span> Administrar</a>
+                        </div>';
+            }
+        ?>
         <div class="row row-cols-1 row-cols-md-3 g-4 mt-5 mb-4">
             <?php
                 include('php_mysql/productos.php');
