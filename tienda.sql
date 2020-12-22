@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-12-2020 a las 10:58:20
+-- Tiempo de generación: 22-12-2020 a las 11:50:19
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.4.11
 
@@ -43,7 +43,7 @@ CREATE TABLE `producto` (
   `ID` int(10) UNSIGNED NOT NULL,
   `Nombre` varchar(50) NOT NULL,
   `Categoria` varchar(25) NOT NULL,
-  `Descripcion` varchar(70) NOT NULL,
+  `Descripcion` varchar(80) NOT NULL,
   `Precio` int(6) NOT NULL,
   `Existencia` int(5) NOT NULL,
   `Imagen` varchar(50) NOT NULL
@@ -58,9 +58,9 @@ INSERT INTO `producto` (`ID`, `Nombre`, `Categoria`, `Descripcion`, `Precio`, `E
 (2, 'Wilson Falcon 12', 'Equipo_Accesorio', 'Bate de béisbol juvenil, aleación de murciélago', 750, 45, 'img/wilson_falcon.jpg'),
 (3, 'Pelotas de tenis Penn', 'Equipo_Accesorio', 'Paquete Championship de 15 latas de 3 pelotas cada uno', 1575, 30, 'img/pelotas_penn.jpg'),
 (4, 'Balón Mikasa v200w', 'Equipo_Accesorio', 'Balón oficial de la Liga de Campeones CEV', 2200, 15, 'img/mikasa_v200w.jpg'),
-(5, 'Red Spalding', 'Equipo_Accesorio', 'Red en blanco para aro de basketball - Spalding', 165, 55, 'img/red_spalding.jpg'),
+(5, 'Red Spalding', 'Equipo_Accesorio', 'Red en blanco para aro de basketball - Spalding', 165, 55, 'img/red_spalding.png'),
 (6, 'Camiseta Naffta F186', 'Ropa', 'Camiseta de padel y tenis para mujer - Naffta', 569, 150, 'img/camiseta_naffta.jpg'),
-(7, 'Uniforme Voleibol UDI Sport Rosa', 'Ropa', 'Uniforme Rosa-Negro-Blanco de Voleibol para mujer, cuello tipo V - UDI', 380, 120, 'img/voleibol_mujer.jpg'),
+(7, 'Uniforme Voleibol UDI Sport Rosa', 'Ropa', 'Uniforme Rosa-Negro-Blanco de Voleibol para mujer, cuello tipo V - UDI Sports', 380, 120, 'img/voleibol_mujer.jpg'),
 (8, 'Pantalón de béisbol gris', 'Ropa', 'Pantalón gris de uniforme de béisbol para hombre - El Siglo', 378, 100, 'img/pantalon_beisbol.jpg'),
 (9, 'Jersey Venom portero', 'Ropa', 'Jersey de fútbol de marvel Venom para portero - Buffon', 527, 50, 'img/portero_venom.png'),
 (10, 'Jersey deportiva verde', 'Ropa', 'Jersey para hombre estilo deportivo - Goodluck Uniform', 275, 223, 'img/green_jersey.jpg'),
@@ -74,21 +74,16 @@ INSERT INTO `producto` (`ID`, `Nombre`, `Categoria`, `Descripcion`, `Precio`, `E
 (18, 'Chaqueta Adidas', 'Ropa', 'Chaqueta para entrenar', 999, 20, 'img/chaquetaAdidas.jpg'),
 (19, 'Gorro Puma', 'Ropa', 'Gorro para invierno', 350, 13, 'img/gorroPuma.jpg'),
 (20, 'Pants Puma N', 'Ropa', 'Pants de entrenamiento', 400, 21, 'img/pantsPuma.jpg'),
-(26, 'Bandas Para Mujer', 'Equipo_Accesorio', 'Bandas Para el cabello para Futbol', 235, 21, 'img/bandas-mujer.jpg'),
-(27, 'Bendas para Box', 'Equipo_Accesorio', 'Bendas Everlast para Boxeo 5cm', 135, 66, 'img/bendas-box.jpg'),
-(28, 'Guantes de Box', 'Equipo_Accesorio', 'Guantes Rojos para Box Cleto Reyes', 2000, 16, 'img/cleto-reyes.jpg'),
-(29, 'Cubrebocas', 'Equipo_Accesorio', 'Cubrebocas Deprtivo Negro Under Armour', 250, 121, 'img/cubrebocas-under-armour.png'),
-(30, 'Manilla Rawlings', 'Equipo_Accesorio', 'Manilla para Baseball Rawlings Negra', 900, 23, 'img/manilla-rawlings.jpg'),
-(31, 'Bandas Para Mujer', 'Equipo_Accesorio', 'Bandas Para el cabello para Futbol', 235, 21, 'img/bandas-mujer.jpg'),
-(32, 'Bendas para Box', 'Equipo_Accesorio', 'Bendas Everlast para Boxeo 5cm', 135, 66, 'img/bendas-box.jpg'),
-(33, 'Guantes de Box', 'Equipo_Accesorio', 'Guantes Rojos para Box Cleto Reyes', 2000, 16, 'img/cleto-reyes.jpg'),
-(34, 'Cubrebocas', 'Equipo_Accesorio', 'Cubrebocas Deprtivo Negro Under Armour', 250, 121, 'img/cubrebocas-under-armour.png'),
-(35, 'Manilla Rawlings', 'Equipo_Accesorio', 'Manilla para Baseball Rawlings Negra', 900, 23, 'img/manilla-rawlings.jpg'),
-(36, 'Playera Nike', 'Ropa', 'Playera Nike Entrenamiento Azul', 499, 23, 'img/nike._tr.jpg'),
-(37, 'Jersey Nike NBA', 'Ropa', 'Jersey Edicion Especial Kobe Bryant', 1659, 8, 'img/jersey_kobe.jpg'),
-(38, 'Short Bayern', 'Ropa', 'Short de Entrenamioento Adidas edición Bayern', 299, 12, 'img/short_bayern.jpg'),
-(39, 'Pants Puma', 'Ropa', 'Pants Puma Negro Entrenamiento', 500, 55, 'img/pants_puma.png'),
-(40, 'Playera Under Armour', 'Ropa', 'Playera Under Armour Gris de Entrenamiento', 359, 46, 'img/ua_compresion.jpg');
+(21, 'Bandas Para Mujer', 'Equipo_Accesorio', 'Bandas Para el cabello para Futbol', 235, 21, 'img/bandas-mujer.jpg'),
+(22, 'Bendas para Box', 'Equipo_Accesorio', 'Bendas Everlast para Boxeo 5cm', 135, 66, 'img/bendas-box.jpg'),
+(23, 'Guantes de Box', 'Equipo_Accesorio', 'Guantes Rojos para Box Cleto Reyes', 2000, 16, 'img/cleto-reyes.jpg'),
+(24, 'Cubrebocas', 'Equipo_Accesorio', 'Cubrebocas Deprtivo Negro Under Armour', 250, 121, 'img/cubrebocas-under-armour.png'),
+(25, 'Manilla Rawlings', 'Equipo_Accesorio', 'Manilla para Baseball Rawlings Negra', 900, 23, 'img/manilla-rawlings.jpg'),
+(26, 'Playera Nike', 'Ropa', 'Playera Nike Entrenamiento Azul', 499, 23, 'img/nike_tr_2.jpg'),
+(27, 'Jersey Nike NBA', 'Ropa', 'Jersey Edicion Especial Kobe Bryant', 1659, 8, 'img/jersey_kobe.jpg'),
+(28, 'Short Bayern', 'Ropa', 'Short de Entrenamioento Adidas edición Bayern', 299, 12, 'img/short_bayern.png'),
+(29, 'Pants Puma', 'Ropa', 'Pants Puma Negro Entrenamiento', 500, 55, 'img/pants_puma.png'),
+(30, 'Playera Under Armour', 'Ropa', 'Playera Under Armour Gris de Entrenamiento', 359, 46, 'img/ua_compresion.jpg');
 
 -- --------------------------------------------------------
 
@@ -117,7 +112,8 @@ CREATE TABLE `usuario` (
 INSERT INTO `usuario` (`ID`, `Nombre`, `Cuenta`, `Clave`, `Correo`, `Habilitado`, `Pais`, `Ciudad`, `Direccion`, `CP`, `Respaldo`) VALUES
 (1, 'Christopher Diego Martínez Bernal', 'Diego Daymon', 'kalilinux', 'diego_daymon@gmail.com', 0, 'Australia', 'Canberra', 'Calle Kanguro #111', '2601', 'DoubleLayer'),
 (2, 'Juan Aristizábal Vázquez', 'Juanes', 'malagente', 'misangre@gmail.com', 0, 'México', 'Aguascalientes', 'Calle Inauguración #200', '1723', 'Temblor'),
-(3, 'Luis Felipe Velázquez López', 'Philip', 'jojos', 'lus_vela@hotmail.com', 0, 'México', 'Real de Haciendas', 'Aguascalientes', '20196', 'Fácil');
+(3, 'Luis Felipe Velázquez López', 'Philip', 'jojos2', 'lus_vela@hotmail.com', 0, 'México', 'Real de Haciendas', 'Aguascalientes', '20196', 'Fácil'),
+(6, 'Don Admin', 'Administrador', 'yosoyroot', 'pwpfinal2020@gmail.com', 0, 'Australia', 'Brisbane', 'Avenida Taz #23', '4075', 'SIUUU');
 
 -- --------------------------------------------------------
 
@@ -129,7 +125,7 @@ CREATE TABLE `ventas` (
   `Folio_Vta` int(10) UNSIGNED NOT NULL,
   `ID_Usuario` int(10) UNSIGNED NOT NULL,
   `ID_Producto` int(10) UNSIGNED NOT NULL,
-  `Cantidad` int(5) NOT NULL,
+  `Cantidad` int(5) UNSIGNED NOT NULL,
   `Total` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -172,13 +168,13 @@ ALTER TABLE `ventas`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `ventas`

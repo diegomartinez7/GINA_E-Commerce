@@ -7,6 +7,10 @@ body {
     background-color: rgba(0, 50, 50, 0.9);
 }
 
+.bg-form {
+    background-color: rgba(0, 70, 55, 0.25);
+}
+
 .pagina-completa {
     min-height: 90vh;
     position: relative;
