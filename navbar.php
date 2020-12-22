@@ -81,6 +81,9 @@
                                     echo "<div class='form-group text-center'>";
                                         echo "<small><a href='#' data-toggle='modal' data-target='#modalRegistro'>¿No te has registrado?</a></small>";
                                     echo "</div>";
+                                    echo "<div class='form-group text-center'>";
+                                        echo "<small><a href='#' data-toggle='modal' data-target='#modalRecuperar'>¿Olvidaste tu contraseña?</a></small>";
+                                    echo "</div>";
                                 echo "</form>";
                             echo "</li>";
                         echo "</ul>";
@@ -160,12 +163,41 @@
                         </div>
                         <p class="text-danger m-4 small" id="failed"></p>
                         <button class="btn btn-lg btn-warning mb-3" id="validar" type="button">Validar</button>
-                        <input type="submit" class="btn btn-info btn-block" value="Enviar" id="enviar">
+                        <input type="submit" class="btn btn-info btn-block d-none" value="Enviar" id="enviar">
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
+    <!--------------------------------------- Modal recuperar contraseña  ------------------------------------->
+    <div class="modal fade" id="modalRecuperar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Recuperar Contraseña</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="php_extra/recupera.php" method="post">
+                        <div class="form-group">
+                            <label for="usuario">Usuario:</label>
+                            <input type="text" class="form-control" id="usuario" required name="usuario">
+                        </div>
+                        <div class="form-group">
+                            <label for="clave">Clave de recuperación:</label>
+                            <input type="text" class="form-control" id="clave" required name="clave">
+                        </div>
+                        <input type="submit" class="btn btn-info btn-block" value="Enviar" id="enviaR">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
 
 
     <h1 class="text-center m-3">Gusto Innovador para Nuestros Atletas</h1>
