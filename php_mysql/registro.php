@@ -24,6 +24,7 @@
         //Si regresa un cierto número de columnas sabemos que sí existe la cuenta o correo registrado
         if($resultado->num_rows){
             //Definir algo para hacerle saber al usuario al regresar que la cuenta y correo ya existen
+            //Alguna posición de $_SESSION para almacenar esto y al regresar que sea checada y si está llena se le hace algún unset y se imprime la alerta del por qué
         }
         else{  //No había registros que coincidieran así que insertamos el nuevo registro
             $query = "INSERT INTO usuario (`Nombre`, `Cuenta`, `Clave`, `Correo`, `Habilitado`, `Pais`, `Direccion`, `Ciudad`, `CP`, `Respaldo`) 
