@@ -70,7 +70,7 @@
                     if(empty($_SESSION["cuenta"])){
                         echo "<ul class='dropdown-menu dropdown-menu-right mt-2'>";
                             echo "<li class='px-3 py-2'>";
-                                echo "<form class='form' role='form' action='php_mysql/login.php' method='post'>";
+                                echo "<form class='form' role='form' action='login.php' method='post'>";
                                     echo "<div class='form-group'>";
                                         echo "<input name='cuenta' id='cuentaInput' placeholder='Usuario' class='form-control form-control-sm' type='text' required=''>";
                                     echo "</div>";
@@ -187,7 +187,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="php_extra/recupera.php" method="post">
+                    <form action="recupera.php" method="post">
                         <div class="form-group">
                             <label for="usuario">Usuario:</label>
                             <input type="text" class="form-control" id="usuario" required name="usuario">
