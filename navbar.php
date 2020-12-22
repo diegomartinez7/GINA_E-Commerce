@@ -1,7 +1,3 @@
-<?php
-    session_start();
-?>
-
 <!------------------------------------------------------------ Menú de navegación -------------------------------------------------------->
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-navbar">
@@ -13,7 +9,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="index.php">Inicio</a>
             </li>
             <li class="nav-item dropdown">
@@ -35,6 +31,16 @@
             <li class="nav-item">
                 <a class="nav-link" href="pFrecuentes.php">FAQ</a>
             </li>
+            <!------------------------------------------ Botón para reportes del Admin ------------------------------------------>
+            <?php
+                if(!empty($_SESSION["cuenta"])){
+                    if($_SESSION["cuenta"]=='Administrador'){
+                        echo '<li class="nav-item">
+                                <a class="nav-link" href="graficas.php">Reportes</a>
+                             </li>';
+                    }
+                }
+            ?>
         </ul>
 
         <!----------------- Login -------------------------------> 

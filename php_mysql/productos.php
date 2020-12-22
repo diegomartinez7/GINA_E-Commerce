@@ -2,8 +2,10 @@
     include('php_mysql/conexion.php');
     
     //Identificamos de qué categoría es la página para saber qué productos mostrar
-    $pagina = str_replace("/G.I.N.A/", "", $_SERVER['REQUEST_URI']);
-    $categoria = ($pagina=='ropa.php')? 'Ropa' : 'Equipo_Accesorio';
+    //$pagina = str_replace("/G.I.N.A/", "", $_SERVER['REQUEST_URI']);
+    $pagina = strpos($_SERVER['REQUEST_URI'], 'ropa.php');
+    //$categoria = ($pagina=='ropa.php')? 'Ropa' : 'Equipo_Accesorio';
+    $categoria = ($pagina)? 'Ropa' : 'Equipo_Accesorio';
 
     //Obtenemos el total de registros que hay en la categoría
     $query = "SELECT COUNT(*) AS Registros FROM producto WHERE Categoria = '$categoria'";
