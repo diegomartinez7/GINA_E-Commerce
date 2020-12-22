@@ -52,7 +52,7 @@
 </form>
 <br>
 <div class="alert alert-dark" role="alert" style="margin-left: 3%; width: 65%;">
-  O si lo prefieres estamos ubicados en el Centro Comercial Altaria Boulevard a y Luis Donaldo Colosio
+  O si lo prefieres estamos ubicados en el Centro Comercial Altaria Boulevard a Zacatecas y Luis Donaldo Colosio
 </div>
 
 <br>

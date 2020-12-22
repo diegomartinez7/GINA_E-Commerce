@@ -1,5 +1,5 @@
 <?php
-    include('conexion.php');
+    include('php_mysql/conexion.php');
     session_start();
 
     if($_SERVER["REQUEST_METHOD"]=='POST'){
@@ -48,6 +48,6 @@
         }
     }
     //Redireccionamos en cualquier caso hacia el index
-    header("Location: ../index.php");
+    header("Location: index.php");
     exit();  //salimos del script
 ?>
