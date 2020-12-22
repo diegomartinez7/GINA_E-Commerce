@@ -1,5 +1,5 @@
 <?php
-    include('conexion.php');
+    include('php_mysql/conexion.php');
     session_start();
 
     if($_SERVER["REQUEST_METHOD"]=='POST'){
@@ -16,7 +16,15 @@
         
         while($tupla = $resultado->fetch_assoc()){
             if($tupla["Cuenta"]==$cuenta){
-                if($tupla["Clave"]==$clave){
+                if($tupla["Clave"] == md5($clave)){ // compara la clave en la bd con la clave encriptada
+                    // Vamos a establecer las cookies
+                    if(!empty($_POST["recordar"])){
+                        setcookie("username",$_POST["cuenta"]);
+                        setcookie("password",$_POST["clave"]);
+                    }else{
+                        setcookie("username","");
+                        setcookie("password","");
+                    }
                     //Se separa el captcha porque no es motivo de penalización
                     if($captcha==$_SESSION['captcha_text']){
                         $_SESSION['id'] = $tupla['ID'];
@@ -29,6 +37,7 @@
                         $query = "update usuario set habilitado = 0 where cuenta = '$cuenta'";
                         $conexion->query($query);
                     }
+
                 }
                 else{
                     //Si aumentan los intentos: El usuario existe y puso mal su contraseña
@@ -48,6 +57,6 @@
         }
     }
     //Redireccionamos en cualquier caso hacia el index
-    header("Location: ../index.php");
+    header("Location: index.php");
     exit();  //salimos del script
 ?>

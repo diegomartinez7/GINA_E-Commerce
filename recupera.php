@@ -1,7 +1,8 @@
 <?php
+    session_start();
     // ----------------------- Script para validar que exista el usuario y si la clave es correcta -------------
-    include('../php_mysql/conexion.php');
-    include('../cadenaAleatoria.php');
+    include('php_mysql/conexion.php');
+    include('cadenaAleatoria.php');
 
     if($_SERVER["REQUEST_METHOD"] == 'POST'){
         $usuario = $_POST["usuario"];
