@@ -8,6 +8,7 @@
         $cuenta = $_POST["cuenta"];
         $clave = md5($_POST["contrasena"]);
         $correo = $_POST["correo"];
+        $_SESSION["correo1"]=$correo;
         //El campo de habilitado iría aquí pero se establece siempre en 0 en un registro nuevo
         $pais = $_POST["pais"];
         $ciudad = $_POST["ciudad"];
@@ -58,7 +59,8 @@
             // ----------------- aqui enviamos a la tabla cupones un registro nuevo -----------
             $queryInserta = "INSERT INTO cupones (`Codigo`,`ID_Usuario`,`Disponible`) VALUES ('$desc','$idUsuario',0)";
             $conexion->query($queryInserta);
-
+            $_SESSION["desc"]=$desc;
+            include('../correoCupon.php');
 
         }
     }

@@ -17,6 +17,9 @@
         while($tupla = $resultado->fetch_assoc()){
             if($tupla["Cuenta"]==$cuenta){
                 if($tupla["Clave"] == md5($clave)){ // compara la clave en la bd con la clave encriptada
+                	$_SESSION["carrito"]= [];
+                	$_SESSION["costo"]= [];
+                	$_SESSION["cantidad"]= [];
                     // Vamos a establecer las cookies
                     if(!empty($_POST["recordar"])){
                         setcookie("username",$_POST["cuenta"]);

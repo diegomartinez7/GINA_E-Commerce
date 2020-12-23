@@ -95,7 +95,7 @@ CREATE TABLE `usuario` (
   `ID` int(10) UNSIGNED NOT NULL,
   `Nombre` varchar(50) NOT NULL,
   `Cuenta` varchar(50) NOT NULL,
-  `Clave` varchar(25) NOT NULL,
+  `Clave` varchar(32) NOT NULL,
   `Correo` varchar(30) NOT NULL,
   `Habilitado` int(1) NOT NULL,
   `Pais` varchar(15) NOT NULL,
@@ -110,10 +110,10 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`ID`, `Nombre`, `Cuenta`, `Clave`, `Correo`, `Habilitado`, `Pais`, `Ciudad`, `Direccion`, `CP`, `Respaldo`) VALUES
-(1, 'Christopher Diego Martínez Bernal', 'Diego Daymon', 'kalilinux', 'diego_daymon@gmail.com', 0, 'Australia', 'Canberra', 'Calle Kanguro #111', '2601', 'DoubleLayer'),
-(2, 'Juan Aristizábal Vázquez', 'Juanes', 'malagente', 'misangre@gmail.com', 0, 'México', 'Aguascalientes', 'Calle Inauguración #200', '1723', 'Temblor'),
-(3, 'Luis Felipe Velázquez López', 'Philip', 'jojos2', 'lus_vela@hotmail.com', 0, 'México', 'Real de Haciendas', 'Aguascalientes', '20196', 'Fácil'),
-(6, 'Don Admin', 'Administrador', 'yosoyroot', 'pwpfinal2020@gmail.com', 0, 'Australia', 'Brisbane', 'Avenida Taz #23', '4075', 'SIUUU');
+(1, 'Christopher Diego Martínez Bernal', 'Diego Daymon', '529f6d5288b55300e1efbb6da70ccc92', 'diego_daymon@gmail.com', 0, 'Australia', 'Canberra', 'Calle Kanguro #111', '2601', 'DoubleLayer'),
+(2, 'Juan Aristizábal Vázquez', 'Juanes', '4df6635be043779b9175bbd3838aedae', 'misangre@gmail.com', 0, 'México', 'Aguascalientes', 'Calle Inauguración #200', '1723', 'Temblor'),
+(3, 'Luis Felipe Velázquez López', 'Philip', '896e870018d891b4b9a0bdccd85c2f53', 'lus_vela@hotmail.com', 0, 'México', 'Real de Haciendas', 'Aguascalientes', '20196', 'Fácil'),
+(6, 'Don Admin', 'Administrador', '4297628d27d5562d51037c3071d80489', 'pwpfinal2020@gmail.com', 0, 'Australia', 'Brisbane', 'Avenida Taz #23', '4075', 'SIUUU');
 
 -- --------------------------------------------------------
 

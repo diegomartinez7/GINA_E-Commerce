@@ -45,7 +45,13 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        <button class="btn btn-warning btn-block"><small class="text-muted">Añadir al carrito</small></button>
+                    <form action="carrito.php" method="post">
+                        <input class="d-none" name="Producto" value="'.$tupla["Nombre"].'">
+                        <input class="d-none" name="Precio" value="'.$tupla["Precio"].'">
+                        <input class="d-none" name="Cantidad" value="<script>document.getElementById('.'cantidad'.').value</script>">
+                         <input class="btn btn-warning btn-block" type="submit" value="Añadir al carrito">
+                    </form>
+                       
                     </div>
                 </div>
             </div>';

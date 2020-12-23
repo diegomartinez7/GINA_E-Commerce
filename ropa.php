@@ -1,5 +1,6 @@
 <?php
     session_start();
+    $_SESSION["categoria"]="ropa";
 ?>
 
 <!DOCTYPE html>
@@ -35,9 +36,21 @@
         </div>
     </div>
     <div style="height: 87vh; width: 300px; background-color: rgba(0,100,0, 0.7); position: fixed; bottom: 50px; right: 0; z-index: 2;">
+        <h2 class="text-info text-center">Carrito</h2>
+        <ul>
         
-    </div>
+        <?php 
+        $nombre=$_SESSION["carrito"];
+        $precio=$_SESSION["costo"];
+        // $cantidad=$_SESSION["cantidad"];
+            for($j=0;$j<count($_SESSION["carrito"]);$j++){
+                echo "<li class='text-light'>".$nombre[$j].",  $".$precio[$j]."</li>";//.", ".$precio[$j].", ";//. $cantidad[$j];
 
+            }
+        ?>
+        </ul>
+        <a class="btn btn-info" href="Pago.php">Pagar</a>
+    </div>
     <?php
         include('footer.php');
     ?>
