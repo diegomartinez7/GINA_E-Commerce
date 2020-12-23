@@ -1,9 +1,6 @@
 <?php
     // ----------------------- Script para validar que exista el usuario y si la clave es correcta -------------
-<<<<<<< HEAD:recupera.php
-=======
     session_start();
->>>>>>> 6720815d36466bbd4890d4349ff472f8ef07d51f:php_extra/recupera.php
     include('php_mysql/conexion.php');
     include('cadenaAleatoria.php');
 
@@ -41,15 +38,5 @@
                 }
             }
         }
-
-
-
-    }
-<<<<<<< HEAD:recupera.php
-    /*header("Location: index.php");
-    exit();  */
-=======
-    header("Location: index.php");
-    exit();  
->>>>>>> 6720815d36466bbd4890d4349ff472f8ef07d51f:php_extra/recupera.php
+    } 
 ?>

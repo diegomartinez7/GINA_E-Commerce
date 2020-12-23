@@ -36,17 +36,42 @@
     <div class="container margen-pagina-completa">
         <canvas id="paises"></canvas>
     </div>
+    <div class="container margen-pagina-completa">
+        <canvas id="bloqueados"></canvas>
+    </div>
 
     <?php
         include('footer.php');
     ?>
 
 <script>
-    let ropa = <?php echo "27" ?>; // query para numero de artículos vendidos de la categoría ropa
-    let equipo = <?php echo "34" ?>; // query para numero de artículos vendidos de la categoría equipo y accesorios
-    let mx = <?php echo "7" ?>; // query para numero de usuarios de México
-    let usa = <?php echo "4" ?>; // query para numero de usuarios de Estados Unidos
-    let aus = <?php echo "10" ?>; // query para numero de usuarios de Australia
+    <?php 
+        include('php_mysql/conexion.php');
+        $query = "SELECT SUM(Cantidad) AS numero FROM producto, ventas WHERE producto.ID = ventas.ID_Producto AND producto.Categoria = 'Ropa'";
+        $ropa = $conexion->query($query)->fetch_assoc();
+        $query = "SELECT SUM(Cantidad) AS numero FROM producto, ventas WHERE producto.ID = ventas.ID_Producto AND producto.Categoria = 'Equipo_Accesorio'";
+        $equipo = $conexion->query($query)->fetch_assoc();
+        $query = "SELECT COUNT(*) AS numero FROM usuario WHERE Pais = 'México'";
+        $mx = $conexion->query($query)->fetch_assoc();
+        $query = "SELECT COUNT(*) AS numero FROM usuario WHERE Pais = 'USA'";
+        $usa = $conexion->query($query)->fetch_assoc();
+        $query = "SELECT COUNT(*) AS numero FROM usuario WHERE Pais = 'Australia'";
+        $aus = $conexion->query($query)->fetch_assoc();
+        $query = "SELECT COUNT(*) AS numero FROM usuario WHERE Habilitado = 0";
+        $habilitado = $conexion->query($query)->fetch_assoc();
+        $query = "SELECT COUNT(*) AS numero FROM usuario WHERE Habilitado = 1 || Habilitado = 2";
+        $cercanas = $conexion->query($query)->fetch_assoc();
+        $query = "SELECT COUNT(*) AS numero FROM usuario WHERE Habilitado = 3";
+        $bloqueado = $conexion->query($query)->fetch_assoc();
+    ?>
+    let ropa = <?php echo $ropa["numero"] ?>;  //número de artículos vendidos de la categoría ropa
+    let equipo = <?php echo $equipo["numero"] ?>;  //número de artículos vendidos de la categoría equipo y accesorios
+    let mx = <?php echo $mx["numero"] ?>;  //número de usuarios de México
+    let usa = <?php echo $usa["numero"] ?>;  //número de usuarios de Estados Unidos
+    let aus = <?php echo $aus["numero"] ?>;  //número de usuarios de Australia
+    let habilitado = <?php echo $habilitado["numero"] ?>;  //número de usuarios con cuenta habilitada
+    let cercanas = <?php echo $cercanas["numero"] ?>;  //número de usuarios con cuenta cercana al bloqueo
+    let bloqueado = <?php echo $bloqueado["numero"] ?>;  //número de usuarios con cuenta bloqueada
     
     let canvas = document.getElementById("categorias").getContext("2d");
 
@@ -79,7 +104,22 @@
             ]
         }
     });
+    
+    let canvas3 = document.getElementById("bloqueados").getContext("2d");
 
+    var grafica3 = new Chart(canvas3,{
+        type: "bar",
+        data: {
+            labels: ["Cuentas Habilitadas","Cuentas cercanas al bloqueo","Cuentas Bloqueadas"],
+            datasets: [
+                {
+                    label: "Acceso a cuentas",
+                    backgroundColor: "rgb(60,150,110)",
+                    data: [habilitado,cercanas,bloqueado,0] // se establecen en la gráfica los valores de las variables
+                }
+            ]
+        }
+    });
 </script>
     
 </body>
