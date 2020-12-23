@@ -30,6 +30,32 @@ footer {
     text-align: center;
 }
 
+.efecto:hover {
+    opacity: 0.45;
+}
+
+#logo:hover {
+    animation: rotar 2.5s infinite;
+}
+
+@keyframes rotar {
+    0% {
+        transform: translateX(0px);
+    }
+    25% {
+        transform: translateX(300px);
+    }
+    50% {
+        transform: translateX(0px);
+    }
+    75% {
+        transform: translateX(-300px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}
+
 /*
 #panelCarrito {
     background-color: rgba(0,100,0, 0.7);
