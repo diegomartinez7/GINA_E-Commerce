@@ -25,7 +25,7 @@
         //Imprimimos la card que contiene a cada producto y sus datos
         echo '<div class="col col-md-6 col-lg-4  mt-4 mb-4">
                 <div class="card h-100" style="border-radius: 0 0 30px 30px; border: 2px solid black;">
-                    <img src="' . $tupla["Imagen"] . '" class="card-img-top mr-auto ml-auto" style="width: 340px; height: 340px;" alt="Imagen del producto">
+                    <img src="' . $tupla["Imagen"] . '" class="card-img-top mr-auto ml-auto efecto" style="width: 340px; height: 340px;" alt="Imagen del producto">
                     <div class="card-body">
                         <div style="height: 120px;">
                             <h5 class="card-title" id="' . $cont . '">' . $tupla["Nombre"] . '</h5>

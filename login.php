@@ -33,6 +33,11 @@
                         $_SESSION['id'] = $tupla['ID'];
                         $_SESSION['nombre'] = $tupla['Nombre'];
                         $_SESSION['cuenta'] = $tupla['Cuenta'];
+                        $_SESSION['pais'] = $tupla['Pais'];
+                        $_SESSION['ciudad'] = $tupla['Ciudad'];
+                        $_SESSION['dir'] = $tupla['Direccion'];
+                        $_SESSION['cp'] = $tupla['CP'];
+
                     }
 
                     //No ha agotado los intentos, ingresa contraseña correcta pero mal captcha, le reiniciamos los intentos
