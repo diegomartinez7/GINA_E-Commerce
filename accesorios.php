@@ -1,5 +1,13 @@
 <?php
     session_start();
+    if(isset($_SESSION["msj_admin"])){
+        $mensaje = $_SESSION["msj_admin"];
+    }
+    else{
+        $mensaje = 0;
+    }
+
+    echo '<input type="hidden" id="mensaje" value="' . $mensaje . '">';
 ?>
 
 <!DOCTYPE html>
@@ -11,6 +19,7 @@
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/fa821c9639.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
     <?php
@@ -41,5 +50,23 @@
     <?php
         include('footer.php');
     ?>
+
+    <script>
+        function alertarAdmin(){
+            let mensaje = document.getElementById("mensaje").value;
+
+            if(mensaje != 0){
+                swal({
+                    title: 'Información para el administrador',
+                    text: mensaje,
+                    icon: "success",
+                    button: "Entendido",
+                });
+                <?php unset($_SESSION["msj_admin"]) ?>
+            }
+        }
+
+        alertarAdmin();
+    </script>
 </body>
 </html>

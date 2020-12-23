@@ -18,7 +18,7 @@
         header("Location: index.php");
     }
 
-    echo '<form action="php_mysql/insert_update_delete.php" method="post" enctype="multipart/form-data" class="bg-form p-3">
+    echo '<form action="insert_update_delete.php" method="post" enctype="multipart/form-data" class="bg-form p-3">
             <div class="form-group">
                 <label for="nombre_Accion" class="h4">Nombre del producto:</label>
                 <input type="text" class="form-control" id="nombre_Accion" name="nombre" required>

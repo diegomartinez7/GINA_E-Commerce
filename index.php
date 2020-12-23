@@ -1,5 +1,13 @@
 <?php
     session_start();
+    if(isset($_SESSION["msj_admin"])){
+        $mensaje = $_SESSION["msj_admin"];
+    }
+    else{
+        $mensaje = 0;
+    }
+
+    echo '<input type="hidden" id="mensaje" value="' . $mensaje . '">';
 ?>
 
 <!DOCTYPE html>
@@ -11,6 +19,7 @@
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/fa821c9639.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
 <!------------ Navbar -->
@@ -60,6 +69,12 @@
         <h3 class="text-center">¿Quieres obtener un descuento?</h3>
         <button class="btn btn-block btn-danger mt-4 mb-4" data-toggle="modal" data-target="#modalRegistro">Suscríbete ahora</button>
         <p class="text-center">No te lo puedes perder</p>
+        <p class="text-center">O s&iacute;guenos en nuestra pagina de Facebook para mas promociones y contenido:</p>
+        <div style="text-align: center">
+   <a href="https://www.facebook.com/Gusto-Innovador-para-Nuestros-Atletas-GINA-101657985186271" title="" style="font-size: 50px; display: inline-block; text-align: center;" target="_blank"><i class="fab fa-facebook"></i></a>
+   <br>
+   Tambien contamos con un cupon de descuento
+		</div>
     </div>
 </div>
 
@@ -114,6 +129,24 @@
 
     //Llamada explícita para que la función se ejecute sin necesidad de un botón
     intentos();
+</script>
+
+<script>
+    function alertarAdmin(){
+        let mensaje = document.getElementById("mensaje").value;
+
+        if(mensaje != 0){
+            swal({
+                title: 'Información para el administrador',
+                text: mensaje,
+                icon: "success",
+                button: "Entendido",
+            });
+            <?php unset($_SESSION["msj_admin"]) ?>
+        }
+    }
+
+    alertarAdmin();
 </script>
   
 </body>
